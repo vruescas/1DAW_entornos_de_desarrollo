@@ -25,10 +25,18 @@
 // ============================================================
 
 function fibonacci(n) {
-  let serie = [0, 1];
+  if (n <= 0) {
+    return [];
+  }
 
-  for (let i = 2; i <= n; i++) {
-    serie.push(serie[i - 1] + serie[i - 3]);
+  let serie = [0];
+  if (n === 1) {
+    return serie;
+  }
+  serie.push(1);
+
+  for (let i = 2; i < n; i++) {
+    serie.push(serie[i - 1] + serie[i - 2]);
   }
 
   return serie;
